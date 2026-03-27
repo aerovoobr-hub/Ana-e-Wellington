@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="theme-color" content="#264273"/>
+<title>Viagem Ana e Wellington - Italia 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Questrial&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<style>
+:root{--navy:#264273;--navy-dark:#1a2d52;--navy-light:#3a5da8;--ash:#e3e2e0;--ash-light:#f2f1ef;--ash-mid:#d4d3d0;--white:#ffffff;--text-dark:#1a1f2e;--text-mid:#5a6175;--text-muted:#9aa0b0;--shadow-soft:0 2px 16px rgba(38,66,115,.08);--shadow-card:0 4px 24px rgba(38,66,115,.12);--shadow-deep:0 8px 40px rgba(38,66,115,.18);--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px;--green:#0e7a5f;--red:#c0392b;--blue:#0284c7;--purple:#6b3db5;--gold:#b8952a}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:#edecea;font-family:'Questrial',sans-serif;display:flex;justify-content:center;min-height:100vh;-webkit-font-smoothing:antialiased}
+.mi{font-family:'Material Icons Round';font-style:normal;line-height:1;display:inline-block;vertical-align:middle;user-select:none}
+.app{width:100%;max-width:400px;background:var(--ash-light);display:flex;flex-direction:column;min-height:100vh;position:relative}
+.hero{background:linear-gradient(160deg,var(--navy-dark) 0%,var(--navy) 55%,var(--navy-light) 100%);flex-shrink:0;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-brand{display:flex;align-items:center;justify-content:center;padding:20px 20px 12px;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:1}
+.brand-wordmark{font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;letter-spacing:4px;color:rgba(255,255,255,.6);text-transform:uppercase}
+.hero-body{padding:16px 22px 22px;position:relative;z-index:1}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:6px}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero-subtitle{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.75);font-size:13px;margin-bottom:8px}
+.hero-subtitle .mi{font-size:14px;color:rgba(255,255,255,.55)}
+.hero-meta{display:flex;align-items:center;gap:10px;margin-top:4px}
+.hero-dates{font-family:'Montserrat',sans-serif;font-size:10px;color:rgba(255,255,255,.45);letter-spacing:1px}
+.hero-code{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:3px 10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:2px}
+.tabs{display:flex;background:var(--white);border-bottom:1px solid var(--ash-mid);position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(38,66,115,.06)}
+.tab{flex:1;padding:11px 4px 9px;border:none;background:none;border-bottom:2px solid transparent;color:var(--text-muted);font-family:'Montserrat',sans-serif;font-size:8px;font-weight:600;letter-spacing:1.5px;cursor:pointer;text-align:center;margin-bottom:-1px;transition:all .2s}
+.tab .mi{font-size:18px;display:block;margin-bottom:3px}
+.tab.on{color:var(--navy);border-bottom-color:var(--navy);font-weight:700}
+.daynav-wrap{background:var(--white);border-bottom:1px solid var(--ash-mid);overflow-x:auto;position:sticky;top:49px;z-index:9}
+.daynav-wrap::-webkit-scrollbar{display:none}
+.daynav{display:flex;padding:10px 14px;gap:8px;min-width:max-content}
+.pill{display:flex;flex-direction:column;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;cursor:pointer;border:1.5px solid var(--ash-mid);background:var(--ash-light);transition:all .2s;text-align:center}
+.pill.on{background:var(--c);border-color:var(--c);box-shadow:0 4px 14px rgba(38,66,115,.22)}
+.pill-n{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:var(--navy);line-height:1}
+.pill-m{font-family:'Montserrat',sans-serif;font-size:8px;color:var(--text-muted);font-weight:600;margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+.pill.on .pill-n,.pill.on .pill-m{color:#fff}
+.pill.on .pill-m{color:rgba(255,255,255,.7)}
+.pill-dot{width:4px;height:4px;border-radius:50%;margin-top:3px;background:var(--c);opacity:0}
+.pill.today:not(.on) .pill-dot{opacity:1}
+.dpanel{display:none;padding:16px 14px 32px}
+.dpanel.on{display:block}
+.dhead{margin-bottom:16px}
+.dhead-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.dbadge{color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:3px 12px;border-radius:30px;letter-spacing:.5px}
+.dweek{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--text-dark)}
+.todaybadge{background:#fef3c7;color:#92400e;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;padding:2px 9px;border-radius:20px;letter-spacing:1px}
+.dcity{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:4px;margin-top:2px}
+.dcity .mi{font-size:13px}
+.item{display:flex;gap:10px;margin-bottom:10px}
+.tl{display:flex;flex-direction:column;align-items:center;width:16px;flex-shrink:0}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:15px;flex-shrink:0;border:2px solid var(--ash-light);box-shadow:0 0 0 2px var(--d)}
+.line{width:2px;flex:1;background:var(--ash-mid);margin-top:4px;border-radius:1px}
+.card{flex:1;border-radius:var(--radius-md);border:1px solid;overflow:hidden;cursor:pointer;box-shadow:var(--shadow-soft);transition:box-shadow .2s,transform .15s}
+.card:active{transform:scale(.99)}
+.card:hover{box-shadow:var(--shadow-card)}
+.cmain{padding:12px 14px}
+.ctop{display:flex;justify-content:space-between;align-items:flex-start}
+.cleft{flex:1;min-width:0}
+.cbadge{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.cbadge .mi{font-size:14px}
+.cblabel{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.ctitle{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--text-dark);line-height:1.35}
+.csub{font-size:11.5px;color:var(--text-mid);margin-top:3px;line-height:1.45}
+.cdetail{font-size:10.5px;color:var(--text-mid);margin-top:6px;padding-top:6px;border-top:1px solid rgba(0,0,0,.05);line-height:1.65}
+.ctime{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--text-muted);margin-left:10px;flex-shrink:0;font-weight:500}
+.cinfo-btn{display:flex;align-items:center;gap:6px;margin:8px 14px 0;padding:7px 12px;background:rgba(38,66,115,.05);border:1px solid rgba(38,66,115,.15);border-radius:20px;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;color:var(--navy);letter-spacing:.5px;text-transform:uppercase;transition:background .2s;width:fit-content}
+.cinfo-btn:hover{background:rgba(38,66,115,.1)}
+.cinfo-btn .mi{font-size:14px}
+.cfoot{display:flex;align-items:center;justify-content:flex-end;padding:5px 13px 8px;gap:4px}
+.cftext{font-family:'Montserrat',sans-serif;font-size:8px;color:var(--text-muted);letter-spacing:1px;font-weight:600}
+.cfoot .mi{font-size:14px;color:var(--text-muted);transition:transform .2s}
+.card.open .cfoot .mi{transform:rotate(180deg)}
+.clinks{display:none;border-top:1px solid rgba(0,0,0,.05);padding:10px 12px;gap:8px;flex-direction:column}
+.card.open .clinks{display:flex}
+.dlink{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--ash-mid);border-radius:var(--radius-sm);padding:10px 12px;text-decoration:none;transition:border-color .2s}
+.dlink:hover{border-color:var(--navy)}
+.dlink .mi{font-size:18px;color:var(--navy);flex-shrink:0}
+.dlname{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--text-dark)}
+.dlsub{font-size:10px;color:var(--text-muted);margin-top:1px}
+.dlarr{margin-left:auto;color:var(--navy)}
+.nodoc{font-size:11px;color:var(--text-muted);text-align:center;padding:4px;display:flex;align-items:center;justify-content:center;gap:5px}
+.emergency-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--red);font-family:'Montserrat',sans-serif;font-weight:600;margin-top:5px;cursor:pointer;text-decoration:none}
+.emergency-chip .mi{font-size:12px}
+.ingresso-chip{display:inline-flex;align-items:center;gap:3px;background:rgba(184,149,42,.1);border:1px solid rgba(184,149,42,.25);border-radius:20px;padding:2px 9px;font-size:9px;color:#8a6a0a;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px;margin-top:4px}
+.ingresso-chip .mi{font-size:11px}
+.ig-link{display:inline-flex;align-items:center;gap:4px;color:var(--navy);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;border-bottom:1px solid rgba(38,66,115,.2);padding-bottom:1px}
+.ig-link .mi{font-size:12px}
+.penalty-note{margin-top:6px;padding:6px 10px;background:rgba(192,57,43,.05);border-radius:6px;border-left:2px solid rgba(192,57,43,.3);font-size:10.5px;color:var(--red);line-height:1.5}
+.docnav-wrap{background:var(--white);border-bottom:1px solid var(--ash-mid);overflow-x:auto;position:sticky;top:49px;z-index:9}
+.docnav-wrap::-webkit-scrollbar{display:none}
+.docnav{display:flex;padding:10px 14px;gap:8px;min-width:max-content}
+.doctab{padding:7px 16px;border-radius:30px;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;color:var(--text-muted);border:1.5px solid var(--ash-mid);background:var(--ash-light);white-space:nowrap;transition:all .2s;letter-spacing:.5px}
+.doctab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.docpanel{display:none;padding:16px 14px 32px}
+.docpanel.on{display:block}
+.slabel{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--text-muted);letter-spacing:2.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.slabel .mi{font-size:13px}
+.gbtn{width:100%;display:flex;align-items:center;gap:14px;border:none;border-radius:var(--radius-md);padding:15px 16px;cursor:pointer;margin-bottom:10px;text-align:left;transition:opacity .2s}
+.gbtn:hover{opacity:.9}
+.gbtn .mi{font-size:22px;color:#fff;flex-shrink:0}
+.gbtitle{color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;display:block;letter-spacing:.3px}
+.gbsub{color:rgba(255,255,255,.6);font-size:11px;margin-top:2px;display:block}
+.gbarr{color:rgba(255,255,255,.4);font-size:20px;margin-left:auto}
+.dfile{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--radius-md);padding:13px 14px;margin-bottom:8px;border:1px solid var(--ash-mid);text-decoration:none;transition:border-color .2s,box-shadow .2s;box-shadow:var(--shadow-soft)}
+.dfile:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.dfile .mi{font-size:20px;flex-shrink:0}
+.dfname{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:600;color:var(--text-dark)}
+.dftag{display:inline-block;margin-top:3px;font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:2px;border-radius:5px;padding:2px 7px;font-weight:700}
+.dfarr{margin-left:auto;flex-shrink:0;color:var(--navy)}
+.cwrap{padding:16px 14px 32px}
+.ccard{background:linear-gradient(145deg,var(--navy-dark),var(--navy) 60%,var(--navy-light));border-radius:var(--radius-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow-deep);position:relative;overflow:hidden}
+.ccard::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.04)}
+.clabel{font-family:'Montserrat',sans-serif;font-size:8px;color:rgba(255,255,255,.4);letter-spacing:3px;margin-bottom:12px;text-transform:uppercase;font-weight:600}
+.crow{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.cav{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;flex-shrink:0}
+.cname{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#fff}
+.crole{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+.citem{display:flex;align-items:center;gap:13px;background:var(--white);border-radius:var(--radius-md);padding:13px 15px;margin-bottom:10px;border:1px solid var(--ash-mid);text-decoration:none;box-shadow:var(--shadow-soft);transition:border-color .2s,box-shadow .2s}
+.citem:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.citem .mi{font-size:22px;flex-shrink:0}
+.cilabel{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--text-muted);letter-spacing:1.5px;font-weight:600;text-transform:uppercase}
+.cival{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text-dark);margin-top:2px}
+.cisub{font-size:10px;color:var(--text-muted);margin-top:1px}
+.cidot{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:auto;flex-shrink:0}
+.cidot .mi{font-size:16px;color:#fff}
+.codebox{background:rgba(107,61,181,.06);border-radius:var(--radius-md);padding:16px;border:1px solid rgba(107,61,181,.18);margin-top:4px}
+.codelabel{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--purple);letter-spacing:2px;margin-bottom:6px;font-weight:700;text-transform:uppercase}
+.codeval{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--purple);letter-spacing:2px}
+.codehint{font-size:10px;color:var(--text-muted);margin-top:4px}
+.csection-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--text-muted);text-transform:uppercase;margin:16px 0 10px;display:flex;align-items:center;gap:5px}
+.csection-title .mi{font-size:14px}
+.footer{background:var(--white);border-top:1px solid var(--ash-mid);padding:12px 20px 18px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.flogo{display:flex;align-items:center;gap:2px}
+.ft{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;color:var(--navy);letter-spacing:-.5px}
+.fc{width:16px;height:16px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 1px}
+.fsub{font-family:'Montserrat',sans-serif;font-size:8px;color:var(--text-muted);letter-spacing:2px;font-weight:500;text-transform:uppercase}
+.mov{position:fixed;inset:0;z-index:100;background:rgba(10,18,40,.7);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.mov.on{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-xl) var(--radius-xl) 0 0;width:100%;max-width:400px;max-height:88vh;overflow-y:auto;padding-bottom:40px}
+.mhdr{border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:24px 20px 20px;position:relative}
+.mclose{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mclose .mi{font-size:16px;color:#fff}
+.micon{margin-bottom:8px}
+.micon .mi{font-size:30px;color:#fff}
+.mtitle{font-family:'Montserrat',sans-serif;color:#fff;font-size:18px;font-weight:700}
+.msub{font-family:'Montserrat',sans-serif;color:rgba(255,255,255,.55);font-size:9px;margin-top:4px;letter-spacing:2px;text-transform:uppercase}
+.mbody{padding:16px 16px 0}
+.msec{margin-bottom:16px}
+.msh{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.5px}
+.msh .mi{font-size:14px}
+.tip{display:flex;gap:9px;margin-bottom:7px;background:var(--ash-light);border-radius:var(--radius-sm);padding:9px 11px;border-left:3px solid}
+.tip .mi{font-size:13px;flex-shrink:0;margin-top:2px}
+.tipt{font-size:11.5px;color:var(--text-dark);line-height:1.55}
+.info-overlay{position:fixed;inset:0;z-index:200;background:var(--ash-light);display:none;flex-direction:column;overflow-y:auto;max-width:400px;margin:0 auto}
+.info-overlay.on{display:flex}
+.info-hero{position:relative;height:240px;flex-shrink:0;overflow:hidden;background:var(--navy-dark)}
+.info-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.info-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.65) 100%)}
+.info-back{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.info-back .mi{font-size:20px;color:#fff}
+.info-hero-content{position:absolute;bottom:0;left:0;right:0;padding:16px 20px}
+.info-category{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:4px}
+.info-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;line-height:1.2}
+.info-body{padding:20px 18px;flex:1}
+.info-desc{font-size:13.5px;color:var(--text-mid);line-height:1.7;margin-bottom:12px}
+.info-section-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.info-section-label .mi{font-size:13px;color:var(--navy)}
+.info-tip{display:flex;gap:8px;margin-bottom:8px;padding:8px 12px;background:var(--white);border-radius:10px;border:1px solid var(--ash-mid);box-shadow:var(--shadow-soft)}
+.info-tip .mi{font-size:14px;color:var(--navy);flex-shrink:0;margin-top:1px}
+.info-tip-text{font-size:11.5px;color:var(--text-dark);line-height:1.5}
+.info-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.info-action-btn{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--radius-md);text-decoration:none;border:1px solid var(--ash-mid);background:var(--white);box-shadow:var(--shadow-soft);transition:border-color .2s,box-shadow .2s}
+.info-action-btn:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.info-action-btn .mi{font-size:20px;flex-shrink:0}
+.info-action-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--text-dark);letter-spacing:.3px}
+.info-action-sub{font-size:10px;color:var(--text-muted);margin-top:1px}
+.info-action-arr{margin-left:auto;color:var(--navy)}
+.info-action-arr .mi{font-size:18px}
+@media(min-width:420px){body{padding:20px 12px}.app{border-radius:var(--radius-xl);min-height:auto;box-shadow:0 30px 90px rgba(38,66,115,.18)}.info-overlay{border-radius:var(--radius-xl);overflow:hidden}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hero">
+  <div class="hero-brand"><span class="brand-wordmark">AeroVoo Viagens</span></div>
+  <div class="hero-body">
+    <div class="hero-eyebrow">Roteiro Personalizado</div>
+    <div class="hero-title" id="hname"></div>
+    <div class="hero-subtitle"><span class="mi">flight_takeoff</span><span id="hdest"></span></div>
+    <div class="hero-meta"><span class="hero-dates" id="hdates"></span><span class="hero-code" id="hcode"></span></div>
+  </div>
+</div>
+<div class="tabs">
+  <button class="tab on" onclick="showSec('roteiro',this)"><span class="mi">calendar_today</span>ROTEIRO</button>
+  <button class="tab" onclick="showSec('docs',this)"><span class="mi">folder_open</span>DOCS</button>
+  <button class="tab" onclick="showSec('contato',this)"><span class="mi">support_agent</span>CONTATO</button>
+</div>
+<div class="content">
+  <div id="s-roteiro">
+    <div class="daynav-wrap"><div class="daynav" id="daynav"></div></div>
+    <div id="dpanels"></div>
+  </div>
+  <div id="s-docs" style="display:none">
+    <div class="docnav-wrap"><div class="docnav" id="docnav"></div></div>
+    <div id="docpanels"></div>
+  </div>
+  <div id="s-contato" style="display:none">
+    <div class="cwrap">
+      <div class="ccard">
+        <div class="clabel">Sua Consultora</div>
+        <div class="crow">
+          <div class="cav">G</div>
+          <div><div class="cname">Gabrielle</div><div class="crole">Fundadora e CEO &mdash; AeroVoo Viagens</div></div>
+        </div>
+      </div>
+      <a class="citem" href="https://wa.me/5599163738"><span class="mi" style="color:#25D366">chat</span><div><div class="cilabel">WhatsApp</div><div class="cival">+55 99163-7381</div><div class="cisub">Toque para abrir</div></div><div class="cidot" style="background:#25D366"><span class="mi">arrow_outward</span></div></a>
+      <a class="citem" href="mailto:aerovoobr@gmail.com"><span class="mi" style="color:var(--navy)">mail_outline</span><div><div class="cilabel">E-mail</div><div class="cival">aerovoobr@gmail.com</div><div class="cisub">Toque para enviar</div></div><div class="cidot" style="background:var(--navy)"><span class="mi">arrow_outward</span></div></a>
+      <a class="citem" href="https://instagram.com/aerovoo"><span class="mi" style="color:#e1306c">photo_camera</span><div><div class="cilabel">Instagram</div><div class="cival">@aerovoo</div><div class="cisub">Dicas de viagem!</div></div><div class="cidot" style="background:#e1306c"><span class="mi">arrow_outward</span></div></a>
+      <div class="csection-title"><span class="mi">health_and_safety</span>SEGURO VIAGEM &mdash; EMERG&Ecirc;NCIA</div>
+      <a class="citem" href="https://wa.me/551150399001"><span class="mi" style="color:#25D366">chat</span><div><div class="cilabel">WhatsApp Seguro &mdash; 24h</div><div class="cival">+55 11 5039-9001</div><div class="cisub">Central de Assist&ecirc;ncia 24 horas</div></div><div class="cidot" style="background:#25D366"><span class="mi">arrow_outward</span></div></a>
+      <a class="citem" href="tel:+551150399001"><span class="mi" style="color:var(--red)">phone</span><div><div class="cilabel">Telefone Seguro &mdash; 24h</div><div class="cival">+55 11 5039-9001</div><div class="cisub">Central 24 horas &middot; Assistance 24 hours</div></div><div class="cidot" style="background:var(--red)"><span class="mi">arrow_outward</span></div></a>
+      <a class="citem" href="https://drive.google.com/drive/u/3/folders/11MI6uL-WLCEy__AMJJ-KgOnlahOeCkXO/" target="_blank"><span class="mi" style="color:var(--purple)">verified_user</span><div><div class="cilabel">Seguro Viagem</div><div class="cival">Ver Ap&oacute;lice</div><div class="cisub">Abrir no Google Drive</div></div><div class="cidot" style="background:var(--purple)"><span class="mi">open_in_new</span></div></a>
+      <div class="csection-title"><span class="mi">train</span>ITALO TRENO &mdash; ATENDIMENTO</div>
+      <a class="citem" href="tel:+390694804274"><span class="mi" style="color:var(--red)">phone</span><div><div class="cilabel">Italo &mdash; Servi&ccedil;o ao Cliente</div><div class="cival">+39 06 948 04274</div><div class="cisub">Suporte para passageiros</div></div><div class="cidot" style="background:var(--red)"><span class="mi">arrow_outward</span></div></a>
+      <div class="csection-title"><span class="mi">account_balance</span>EMBAIXADA DO BRASIL NA IT&Aacute;LIA</div>
+      <a class="citem" href="tel:+390644198200"><span class="mi" style="color:var(--green)">phone</span><div><div class="cilabel">Embaixada &mdash; Roma</div><div class="cival">+39 06 44 19 82 00</div><div class="cisub">Via delle Alpi Apuane, 20 &middot; Roma</div></div><div class="cidot" style="background:var(--green)"><span class="mi">arrow_outward</span></div></a>
+      <a class="citem" href="tel:+393382745400"><span class="mi" style="color:var(--red)">emergency</span><div><div class="cilabel">Plant&atilde;o Consular &mdash; Emerg&ecirc;ncias</div><div class="cival">+39 338 274 5400</div><div class="cisub">Somente situa&ccedil;&otilde;es de emerg&ecirc;ncia</div></div><div class="cidot" style="background:var(--red)"><span class="mi">arrow_outward</span></div></a>
+      <a class="citem" href="mailto:brasemb.roma@itamaraty.gov.br"><span class="mi" style="color:var(--navy)">mail_outline</span><div><div class="cilabel">E-mail Embaixada</div><div class="cival">brasemb.roma@itamaraty.gov.br</div><div class="cisub">Toque para enviar</div></div><div class="cidot" style="background:var(--navy)"><span class="mi">arrow_outward</span></div></a>
+      <div class="codebox"><div class="codelabel">C&oacute;digo da Viagem</div><div class="codeval" id="ccode"></div><div class="codehint">Informe em qualquer contato com a AeroVoo</div></div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="flogo"><span class="ft">Aero</span><div class="fc"><svg width="9" height="9" viewBox="0 0 20 20" fill="none"><g transform="rotate(-40 10 10)"><ellipse cx="10" cy="10" rx="7" ry="2" fill="white"/><ellipse cx="16" cy="10" rx="2" ry="1.5" fill="white"/><polygon points="11,8.2 4,1 2,3 8.5,9.3" fill="white"/><polygon points="11,11.8 4,19 2,17 8.5,10.7" fill="white"/></g></svg></div><span class="ft">Voo</span></div>
+  <div class="fsub">Viagens Personalizadas &middot; 2026</div>
+</div>
+</div>
+<div class="mov" id="guideModal"><div class="modal"><div class="mhdr" id="mhdr"><button class="mclose" onclick="closeGuide()"><span class="mi">close</span></button><div class="micon"><span class="mi" id="micon"></span></div><div class="mtitle" id="mtitle"></div><div class="msub" id="msub"></div></div><div class="mbody" id="mbody"></div></div></div>
+<div class="info-overlay" id="infoOverlay"><div class="info-hero" id="infoHero"><img id="infoImg" src="" alt="" onerror="this.style.display='none'"/><div class="info-hero-overlay"></div><button class="info-back" onclick="closeInfo()"><span class="mi">arrow_back</span></button><div class="info-hero-content"><div class="info-category" id="infoCategory"></div><div class="info-title" id="infoTitle"></div></div></div><div class="info-body" id="infoBody"></div></div>
+<script>
+var DR={
+  flights:'https://drive.google.com/drive/u/3/folders/1XGFRb0wch7nrZ8ICdA3UrswGKRu_K1b2/',
+  trains:'https://drive.google.com/drive/u/3/folders/1sABeFD7svvwvZRiayhhYBRf3anzXmTRq',
+  hotels:'https://drive.google.com/drive/u/3/folders/1NkMqWa4VUiakh3cqcBkxDaiRflqqlPTJ',
+  ingressos:'https://drive.google.com/drive/u/3/folders/1JC-LvQWouJXZR9XxZROXRbzK98aK1UDx/',
+  restaurants:'https://drive.google.com/drive/u/3/folders/1kVpO2UNsVm3dAyGYB9TBa-fuGl5YNBQF',
+  insurance:'https://drive.google.com/drive/u/3/folders/11MI6uL-WLCEy__AMJJ-KgOnlahOeCkXO/'
+};
+var TIPOS={
+  flight:{bg:'#eef2fb',dot:'#264273',label:'VOO',icon:'flight'},
+  transfer:{bg:'#f3eefb',dot:'#6b3db5',label:'TRANSFER',icon:'directions_car'},
+  hotel:{bg:'#eaf7f2',dot:'#0e7a5f',label:'HOTEL',icon:'hotel'},
+  activity:{bg:'#fdf8ee',dot:'#b8952a',label:'ATIVIDADE',icon:'explore'},
+  food:{bg:'#fef1f1',dot:'#c0392b',label:'RESTAURANTE',icon:'restaurant'},
+  train:{bg:'#eef7fc',dot:'#0284c7',label:'TREM',icon:'train'}
+};
+var EM={milan:{p:'+39 392 1570017',c:'Mil\u00e3o'},rome:{p:'+39 349 0640606',c:'Roma'}};
+var INFOS={
+  duomo_milano:{cat:'Patrim\u00f4nio \u00b7 Mil\u00e3o',ttl:'Duomo di Milano',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg',desc:'Uma das catedrais g\u00f3ticas mais espetaculares do mundo, o Duomo di Milano \u00e9 o s\u00edmbolo m\u00e1ximo da cidade. Constru\u00e7\u00e3o iniciada em 1386, levou quase seis s\u00e9culos para ser conclu\u00edda.\n\nO terra\u00e7o oferece uma das vistas mais memor\u00e1veis da It\u00e1lia, com a cidade de Mil\u00e3o se estendendo at\u00e9 os Alpes.',tips:['Visite o terra\u00e7o de manh\u00e3 cedo — vista sem aglomera\u00e7\u00e3o','Entrada da catedral gratuita; terra\u00e7o e museu s\u00e3o pagos','C\u00f3digo de vestimenta obrigat\u00f3rio — ombros e joelhos cobertos'],web:'https://www.duomomilano.it/',map:'https://maps.google.com/?q=Duomo+di+Milano',ig:'https://www.instagram.com/duomomilano/'},
+  galleria_ve:{cat:'Arquitetura \u00b7 Mil\u00e3o',ttl:'Galleria Vittorio Emanuele II',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Galleria_Vittorio_Emanuele_II_floor.jpg/800px-Galleria_Vittorio_Emanuele_II_floor.jpg',desc:'Inaugurada em 1877, a Galleria \u00e9 uma das galerias comerciais mais elegantes do mundo. Conhecida como o salotto di Milano, conecta a Piazza del Duomo \u00e0 Piazza della Scala sob uma arcada de ferro e vidro.',tips:['Gire o calcanhar no mosaico do touro — boa sorte!','Caf\u00e9 Campari serve o negroni mais elegante de Mil\u00e3o','Melhor foto: meio-dia, luz zenital pela c\u00fapula'],map:'https://maps.google.com/?q=Galleria+Vittorio+Emanuele+II+Milano'},
+  quadrilatero:{cat:'Moda & Luxo \u00b7 Mil\u00e3o',ttl:'Quadril\u00e1tero da Moda',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Via_Montenapoleone.jpg/800px-Via_Montenapoleone.jpg',desc:'O cora\u00e7\u00e3o do luxo mila\u00eans e um dos destinos de compras mais prestigiados do planeta. Delimitado pelas ruas Via Montenapoleone, Via della Spiga, Via Sant\'Andrea e Corso Venezia.',tips:['Via Montenapoleone — rua mais cara do mundo em aluguel','Muitas lojas oferecem tax-free para compras acima de \u20ac154','Bar Cova: melhor panettone da cidade'],map:'https://maps.google.com/?q=Via+Montenapoleone+Milano'},
+  brera:{cat:'Arte & Cultura \u00b7 Mil\u00e3o',ttl:'Bairro de Brera',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Brera_Milan.jpg/800px-Brera_Milan.jpg',desc:'O bairro mais boh\u00e8me e art\u00edstico de Mil\u00e3o — ruelas de pedra, galerias de arte, antiquarios, livrarias e restaurantes intimistas.\n\nA Pinacoteca di Brera abriga obras de Raphael, Caravaggio e Mantegna.',tips:['Melhor hor\u00e1rio: fins de tarde com sol dourado','Via Madonnina e Vicolo dei Lavandai s\u00e3o as ruas mais fotog\u00eanicas','Pinacoteca di Brera: ter\u00e7a a domingo, aprox. \u20ac15'],web:'https://www.pinacotecabrera.org/',map:'https://maps.google.com/?q=Brera+Milano'},
+  the_roof:{cat:'Restaurante \u00b7 Mil\u00e3o',ttl:'The Roof Milano',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg',desc:'Restaurante rooftop do The Square Milano Duomo com vista panor\u00e2mica direta para o Duomo. Menu de culin\u00e1ria italiana contempor\u00e2nea com influ\u00eancias mediterr\u00e2neas.\n\nA atmosfera ao entardecer, com o sol iluminando o m\u00e1rmore do Duomo, \u00e9 simplesmente inesquec\u00edvel.',tips:['Reserva \u00e0s 19h — pontualidade','Mesa com vista para o Duomo esgota r\u00e1pido — reserve com anteced\u00eancia','Dress code elegante/smart casual'],ig:'https://www.instagram.com/theroofmilano/',map:'https://maps.google.com/?q=The+Roof+Milano+Square+Hotel'},
+  portrait_10_11:{cat:'Restaurante \u00b7 Mil\u00e3o',ttl:'10|11 Portrait Milano',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Via_Montenapoleone.jpg/800px-Via_Montenapoleone.jpg',desc:'Restaurante do hotel Portrait Milano no cora\u00e7\u00e3o do Quadril\u00e1tero della Moda. Culin\u00e1ria italiana refinada e ambiente de design exclusivo da fam\u00edlia Ferragamo.',tips:['Reserve pelo WhatsApp +39 345 7279634','Menu de almo\u00e7o: melhor rela\u00e7\u00e3o custo-benef\u00edcio','Via Sant\'Andrea, 10'],ig:'https://www.instagram.com/10_11milano/',map:'https://maps.google.com/?q=10+11+Portrait+Milano'},
+  maio_restaurante:{cat:'Restaurante \u00b7 Mil\u00e3o',ttl:'Restaurante Maio',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg',desc:'7\u00ba piso da La Rinascente com vista direta para o Duomo di Milano — uma das mesas com vista mais espetaculares da It\u00e1lia.',tips:['Cancelamento com menos de 24h: \u20ac25 por pessoa','Solicite mesa pr\u00f3xima \u00e0 janela ao reservar','Entrada pela La Rinascente, 7\u00ba andar'],ig:'https://www.instagram.com/maiorestaurant_milano/',map:'https://maps.google.com/?q=Maio+Milano+La+Rinascente'},
+  duomo_firenze:{cat:'Patrim\u00f4nio \u00b7 Floren\u00e7a',ttl:'Cattedrale di Santa Maria del Fiore',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florence_Cathedral_-_October_2018.jpg/800px-Florence_Cathedral_-_October_2018.jpg',desc:'Catedral de Floren\u00e7a, conhecida como Il Duomo. Sua c\u00fapula, projetada por Filippo Brunelleschi entre 1420 e 1436, foi a maior c\u00fapula de alvenaria constru\u00edda at\u00e9 ent\u00e3o.',tips:['Ingresso inclui c\u00fapula (463 degraus), campan\u00e1rio, museu e batis\u00f3rio','Chegar 10 min antes do hor\u00e1rio marcado — passaporte obrigat\u00f3rio','Roupas sem decote ou ombros descobertos — sem mochilas grandes'],web:'https://www.museumflorence.com/',map:'https://maps.google.com/?q=Cattedrale+di+Santa+Maria+del+Fiore+Firenze'},
+  uffizi:{cat:'Museu de Arte \u00b7 Floren\u00e7a',ttl:'Galleria degli Uffizi',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Galleria_degli_Uffizi_%2838944960364%29.jpg/800px-Galleria_degli_Uffizi_%2838944960364%29.jpg',desc:'Um dos museus de arte mais importantes do mundo, fundado pelos M\u00e9dici em 1581. Acervo com as maiores pinturas do Renascimento italiano em 90 salas.\n\nDestaques: Botticelli, Leonardo da Vinci, Raphael e Michelangelo.',tips:['Port\u00e3o n\u00ba 1 — chegue 15 min antes do hor\u00e1rio — passaporte obrigat\u00f3rio','Fotografia permitida (sem flash) em quase todas as salas','V\u00e1 primeiro \u00e0 sala de Botticelli — fica lotada!'],web:'https://www.uffizi.it/',map:'https://maps.google.com/?q=Galleria+degli+Uffizi+Firenze',ig:'https://www.instagram.com/uffizigalleries/'},
+  ponte_vecchio:{cat:'Patrim\u00f4nio \u00b7 Floren\u00e7a',ttl:'Ponte Vecchio & Piazza della Signoria',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Firenze_-_Ponte_Vecchio.jpg/800px-Firenze_-_Ponte_Vecchio.jpg',desc:'A Ponte Vecchio \u00e9 a mais antiga e ic\u00f4nica ponte de Floren\u00e7a, constru\u00edda em 1345.\n\nA Piazza della Signoria \u00e9 o cora\u00e7\u00e3o pol\u00edtico de Floren\u00e7a h\u00e1 s\u00e9culos, com o Palazzo Vecchio e a c\u00f3pia do Davi de Michelangelo.',tips:['Melhor foto da Ponte Vecchio: da Ponte Santa Trinita ou \u00e0s 6h da manh\u00e3','As joias s\u00e3o caras — apreciar as vitrines j\u00e1 \u00e9 uma experi\u00eancia'],map:'https://maps.google.com/?q=Ponte+Vecchio+Firenze'},
+  piazzale_michelangelo:{cat:'Mirante \u00b7 Floren\u00e7a',ttl:'Piazzale Michelangelo',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Florence_from_Piazzale_Michelangelo.jpg/800px-Florence_from_Piazzale_Michelangelo.jpg',desc:'O ponto de vista mais famoso de Floren\u00e7a — panoramica perfeita de toda a cidade com o Arno, o Duomo e as colinas ao fundo. O melhor momento \u00e9 ao p\u00f4r do sol.',tips:['Recomendado de t\u00e1xi — subida a p\u00e9: uns 20 min','Chegue 30-45 min antes do p\u00f4r do sol','O bar da pra\u00e7a serve aperitivo com a vista'],map:'https://maps.google.com/?q=Piazzale+Michelangelo+Firenze'},
+  cosimo_rooftop:{cat:'Restaurante \u00b7 Floren\u00e7a',ttl:'Cosimo Rooftop Restaurant',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florence_Cathedral_-_October_2018.jpg/800px-Florence_Cathedral_-_October_2018.jpg',desc:'Jantar com vista privilegiada para Floren\u00e7a ao entardecer. Culin\u00e1ria toscana contempor\u00e2nea com vista para os telhados e o Duomo.',tips:['Cancelamento com menos de 24h: \u20ac100 por pessoa no cart\u00e3o','Reserve mesa na \u00e1rea externa para o p\u00f4r do sol','Dress code smart-casual/elegante'],ig:'https://www.instagram.com/cosimorestaurant/',map:'https://maps.google.com/?q=Cosimo+Rooftop+Restaurant+Firenze'},
+  il_latini:{cat:'Restaurante \u00b7 Floren\u00e7a',ttl:'IL LATINI',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Firenze_-_Ponte_Vecchio.jpg/800px-Firenze_-_Ponte_Vecchio.jpg',desc:'Uma das trattorias mais aut\u00eanticas e hist\u00f3ricas de Floren\u00e7a, funcionando desde 1950 na Via dei Palchetti.\n\nEspecialidades: ribollita, pappardelle al cinghiale, bistecca alla Fiorentina e panna cotta.',tips:['Jantar a partir das 19h30 — pontualidade importante','Mesas compartilhadas fazem parte do charme!','Menu fixo \u00e0 la casa'],ig:'https://www.instagram.com/il_latini_firenze/',map:'https://maps.google.com/?q=Il+Latini+Firenze'},
+  trevi:{cat:'Monumento \u00b7 Roma',ttl:'Fontana di Trevi',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg',desc:'A maior e mais famosa fonte do mundo barroco. Projetada por Nicola Salvi em 1762. Jogue uma moeda com a m\u00e3o direita por sobre o ombro esquerdo para garantir o retorno a Roma.\n\nEntrada: \u20ac2 por pessoa.',tips:['Chegue muito cedo (6h-7h) para v\u00ea-la quase vazia','\u00c0 noite a ilumina\u00e7\u00e3o cria uma atmosfera m\u00e1gica','Proibido entrar na fonte — multas alt\u00edssimas','Entrada: \u20ac2 por pessoa'],map:'https://maps.google.com/?q=Fontana+di+Trevi+Roma'},
+  vaticano:{cat:'Museu & Patrim\u00f4nio \u00b7 Roma',ttl:'Museus Vaticanos & Capela Sistina',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_the_Apostolic_Palace.jpg/800px-Above_the_Apostolic_Palace.jpg',desc:'O maior complexo de museus do mundo com 54 galerias e mais de 20.000 obras. O percurso culmina na Capela Sistina, com o teto pintado por Michelangelo entre 1508 e 1512.',tips:['Chegue 10 min antes — passaporte obrigat\u00f3rio','Ombros e joelhos cobertos (obrigat\u00f3rio na Sistina)','Ingressos n\u00e3o reembolsaveis — proteja com seguro viagem'],web:'https://www.museivaticani.va/',map:'https://maps.google.com/?q=Musei+Vaticani+Roma',ig:'https://www.instagram.com/museivaticani/'},
+  coliseu:{cat:'Patrim\u00f4nio \u00b7 Roma',ttl:'Coliseu \u00b7 Forum Romano \u00b7 Monte Palatino',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg',desc:'O maior anfiteatro j\u00e1 constru\u00eddo, inaugurado em 80 d.C. com capacidade para 80.000 espectadores. O Forum Romano foi o centro da vida pol\u00edtica da Roma Antiga por mais de 900 anos.',tips:['Bilhete v\u00e1lido por 2 dias consecutivos!','Chegar 10 min antes — passaporte obrigat\u00f3rio','Acesso com Arena: veja o ch\u00e3o onde os gladiadores lutavam','Recomendado: Forum e Palatino ap\u00f3s o almo\u00e7o no Aroma'],web:'https://www.colosseo.it/',map:'https://maps.google.com/?q=Colosseo+Roma',ig:'https://www.instagram.com/parcocolosseo/'},
+  pierluigi:{cat:'Restaurante \u00b7 Roma',ttl:'Ristorante Pierluigi',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg',desc:'Um dos restaurantes mais elegantes de Roma desde 1938, na Piazza de Ricci. Especializado em frutos do mar e culin\u00e1ria mediterr\u00e2nea.',tips:['N\u00e3o comparecimento: \u20ac50/pessoa. Cancelamento at\u00e9 24h antes sem penalidade.','Pe\u00e7a o branzino al sale para come\u00e7ar'],ig:'https://www.instagram.com/pierluigiroma/',map:'https://maps.google.com/?q=Ristorante+Pierluigi+Roma'},
+  aroma:{cat:'Restaurante \u00b7 Roma',ttl:'Aroma Ristorante',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg',desc:'O restaurante com a vista mais espetacular de Roma — no terra\u00e7o do Hotel Palazzo Manfredi, em frente ao Coliseu. Uma estrela Michelin.\n\nAlmo\u00e7ar no Aroma ap\u00f3s visitar o Coliseu \u00e9 uma das experi\u00eancias mais memor\u00e1veis de Roma.',tips:['Pedido m\u00ednimo: SMART MENU \u20ac170 — dois pratos \u00e0 sua escolha e uma sobremesa','N\u00e3o comparecimento ou cancelamento com menos de 24h: \u20ac360','Dress code: elegante/formal'],ig:'https://www.instagram.com/aroma_restaurant/',map:'https://maps.google.com/?q=Aroma+Restaurant+Palazzo+Manfredi+Roma'},
+  assunta_madre:{cat:'Restaurante \u00b7 Roma',ttl:'Assunta Madre',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg',desc:'Um dos restaurantes de frutos do mar mais respeitados de Roma, com menu privilegiando ingredientes frescos do dia.',tips:['Cancelamento com menos de 24h: \u20ac168 por pessoa','Pe\u00e7a o que chegar fresco no dia'],ig:'https://www.instagram.com/assunta_madre_official/',map:'https://maps.google.com/?q=Assunta+Madre+Roma'},
+  singer_palace:{cat:'Hotel \u00b7 Roma',ttl:'Singer Palace Hotel',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg',desc:'Cinco estrelas de luxo no centro hist\u00f3rico de Roma, a poucos passos do Pantheon e da Piazza Navona. Distinguido com a Michelin Key.',tips:['Taxa de cidade \u20ac80 e cau\u00e7\u00e3o \u20ac100 cobrados no check-in','Rossini\'s Restaurant no rooftop: vista para os telhados de Roma'],ig:'https://www.instagram.com/singerpalacehotel/',map:'https://maps.google.com/?q=Singer+Palace+Hotel+Roma'},
+  the_square_milano:{cat:'Hotel \u00b7 Mil\u00e3o',ttl:'The Square Milano Duomo',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg',desc:'Hotel boutique a 30 segundos a p\u00e9 da Piazza del Duomo. O The Roof no terra\u00e7o serve jantar com vista panor\u00e2mica para o Duomo.',tips:['Taxa municipal \u20ac40 e cau\u00e7\u00e3o \u20ac100 cobrados no check-in','Pe\u00e7a vista para a Piazza del Duomo se dispon\u00edvel'],ig:'https://www.instagram.com/thesquaremilanhotel/',map:'https://maps.google.com/?q=The+Square+Milano+Duomo'},
+  l_orologio:{cat:'Hotel \u00b7 Floren\u00e7a',ttl:'Hotel L\'Orologio Firenze',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florence_Cathedral_-_October_2018.jpg/800px-Florence_Cathedral_-_October_2018.jpg',desc:'Hotel boutique de luxo com tem\u00e1tica de rel\u00f3gios hist\u00f3ricos na Piazza Santa Maria Novella — 10 minutos a p\u00e9 do Duomo. Academia e sauna 24h.',tips:['Taxa de cidade \u20ac30 cobrada no check-in','Academia e sauna 24h'],map:'https://maps.google.com/?q=Hotel+L+Orologio+Firenze'}
+};
+var VIAGEM={
+  name:'Ana e Wellington',dest:'Mil\u00e3o \u00b7 Floren\u00e7a \u00b7 Roma',
+  dates:'28 Mar \u2014 04 Abr 2026',code:'AV-2026-IT01',start:'2026-03-28',
+  days:[
+    {date:'28 Mar',week:'S\u00e1bado',city:'Fortaleza \u2192 Mil\u00e3o',color:'#264273',docs:[],items:[
+      {type:'flight',time:'23:15',title:'Voo FOR \u2192 LIS \u2014 TAP Air Portugal',sub:'TAP Portugal \u00b7 Voo 36 \u00b7 C7TA8A \u00b7 Executiva',detail:'Pinto Martins \u2192 Portela \u00b7 7h10',links:[{n:'Passagens A\u00e9reas',i:'flight',u:DR.flights}]},
+      {type:'flight',time:'13:10',title:'Conex\u00e3o LIS \u2192 MXP \u2014 TAP Portugal',sub:'TAP Portugal \u00b7 Voo 826 \u00b7 C7TA8A \u00b7 Executiva',detail:'Espera 3h45 em Lisboa \u00b7 2h45 \u00b7 Chegada 16:55',links:[{n:'Passagens A\u00e9reas',i:'flight',u:DR.flights}]},
+      {type:'transfer',time:'17:30',title:'Transfer \u2014 Malpensa \u2192 Hotel',sub:'Motorista segue o hor\u00e1rio do voo \u00b7 atrasos n\u00e3o s\u00e3o problema',detail:'Motorista aguarda no desembarque com plaquinha: ANA L\u00cdCIA',emr:'milan',links:[]},
+      {type:'hotel',time:'19:00',title:'Check-in \u2014 The Square Milano Duomo',sub:'Via Alberico Albricci, 2\u20134',detail:'Quarto Duplo Exclusivo \u00b7 Taxa aprox. \u20ac40 \u00b7 Cau\u00e7\u00e3o aprox. \u20ac100',info:'the_square_milano',links:[{n:'Voucher Hotel',i:'hotel',u:DR.hotels}]},
+      {type:'food',time:'19:00',title:'Jantar \u2014 The Roof Milano',sub:'Reserva \u00e0s 19h \u00b7 Terra\u00e7o do hotel \u00b7 Vista panor\u00e2mica para o Duomo',detail:'Culin\u00e1ria italiana e mediterr\u00e2nea',ig:'https://www.instagram.com/theroofmilano/',info:'the_roof',links:[]}
+    ]},
+    {date:'29 Mar',week:'Domingo',city:'Mil\u00e3o',color:'#264273',docs:[{n:'Voucher Hotel \u2014 The Square',i:'hotel',t:'VOUCHER',c:'#0e7a5f',u:DR.hotels}],items:[
+      {type:'activity',time:'09:00',title:'Caf\u00e9 da manh\u00e3 no hotel',sub:'',detail:'',links:[]},
+      {type:'activity',time:'10:00',title:'Duomo di Milano',sub:'Visita externa \u00b7 terra\u00e7o opcional',detail:'Uma das catedrais g\u00f3ticas mais espetaculares do mundo',info:'duomo_milano',links:[]},
+      {type:'activity',time:'11:00',title:'Galleria Vittorio Emanuele II',sub:'A elegante galeria coberta de ferro e vidro (1877)',detail:'O salotto de Mil\u00e3o',info:'galleria_ve',links:[]},
+      {type:'activity',time:'11:30',title:'Quadril\u00e1tero da Moda',sub:'Via Montenapoleone & Via della Spiga',detail:'Lojas emblematicas e vitrines sofisticadas das maiores grifes do mundo',info:'quadrilatero',links:[]},
+      {type:'food',time:'13:00',title:'Almo\u00e7o \u2014 10|11 Portrait',sub:'Via Sant\'Andrea, 10 \u00b7 WhatsApp +39 345 7279634',ig:'https://www.instagram.com/10_11milano/',info:'portrait_10_11',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]},
+      {type:'activity',time:'16:00',title:'Bairro de Brera',sub:'Boutiques, galerias e caf\u00e9s',detail:'Aperitivo ao anoitecer',info:'brera',links:[]},
+      {type:'food',time:'19:00',title:'Jantar \u2014 Restaurante Maio',sub:'Piazza Del Duomo \u00b7 La Rinascente 7\u00ba Piso',ig:'https://www.instagram.com/maiorestaurant_milano/',pen:'Em caso de n\u00e3o comparecimento ou cancelamento com menos de 24h, ser\u00e1 cobrada uma taxa de \u20ac25 por pessoa no cart\u00e3o fornecido.',info:'maio_restaurante',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]}
+    ]},
+    {date:'30 Mar',week:'Segunda',city:'Mil\u00e3o \u2192 Floren\u00e7a',color:'#0e7a5f',docs:[],items:[
+      {type:'transfer',time:'11:30',title:'Transfer \u2014 The Square \u2192 Milano Centrale',sub:'Ponto de encontro: na frente do hotel',emr:'milan',links:[]},
+      {type:'train',time:'12:40',title:'Trem \u2014 Italo 9935 \u00b7 Prima Business',sub:'Italo Treno \u00b7 Milano Centrale \u2192 Firenze S.M. Novella',detail:'1h55 \u00b7 Chegada 14:35 \u00b7 Wi-Fi e lanches inclusos',links:[{n:'Bilhetes de Trem',i:'train',u:DR.trains}]},
+      {type:'hotel',time:'15:30',title:'Check-in \u2014 Hotel L\'Orologio Firenze',sub:'Piazza S.M. Novella, 24',detail:'Quarto Duplo Superior \u00b7 Taxa aprox. \u20ac30 \u00b7 Academia e sauna 24h',info:'l_orologio',links:[{n:'Voucher Hotel',i:'hotel',u:DR.hotels}]},
+      {type:'activity',time:'16:30',title:'Caminhada por Floren\u00e7a',sub:'Piazza S.M. Novella \u2192 Duomo \u00b7 aprox. 10 min a p\u00e9',detail:'Ruas hist\u00f3ricas, caf\u00e9s e gelaterias',links:[]},
+      {type:'food',time:'19:00',title:'Jantar \u2014 Cosimo Rooftop Restaurant',sub:'P\u00f4r do sol \u00b7 Reserva na \u00e1rea interna',ig:'https://www.instagram.com/cosimorestaurant/',pen:'N\u00e3o comparecimento ou cancelamento com menos de 24h: \u20ac100 por pessoa no cart\u00e3o fornecido.',info:'cosimo_rooftop',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]}
+    ]},
+    {date:'31 Mar',week:'Ter\u00e7a',city:'Floren\u00e7a',color:'#0e7a5f',docs:[],items:[
+      {type:'activity',time:'10:30',title:'Cattedrale di Santa Maria del Fiore',sub:'Chegar 10 min antes \u00b7 Passaporte obrigat\u00f3rio',detail:'C\u00fapula: 463 degraus \u00b7 Campan\u00e1rio: 414 degraus \u00b7 Sem mochilas',ingressp:true,info:'duomo_firenze',links:[{n:'Ingressos Duomo',i:'confirmation_number',u:DR.ingressos}]},
+      {type:'activity',time:'15:00',title:'Galleria degli Uffizi',sub:'Port\u00e3o n\u00ba 1 \u00b7 15 min antes \u00b7 Passaporte obrigat\u00f3rio',detail:'Uma das maiores cole\u00e7\u00f5es de arte do mundo',ingressp:true,info:'uffizi',links:[{n:'Ingressos Uffizi',i:'confirmation_number',u:DR.ingressos}]},
+      {type:'activity',time:'16:30',title:'Ponte Vecchio & Piazza della Signoria',sub:'Joalherias hist\u00f3ricas \u00b7 Palazzo Vecchio externo',info:'ponte_vecchio',links:[]},
+      {type:'activity',time:'18:30',title:'Piazzale Michelangelo \u2014 P\u00f4r do sol',sub:'Vista mais famosa de Floren\u00e7a \u00b7 Taxi recomendado',info:'piazzale_michelangelo',links:[]},
+      {type:'food',time:'19:30',title:'Jantar \u2014 IL LATINI',sub:'Via dei Palchetti \u00b7 Trattoria hist\u00f3rica desde 1950',ingressp:true,ig:'https://www.instagram.com/il_latini_firenze/',info:'il_latini',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]}
+    ]},
+    {date:'01 Abr',week:'Quarta',city:'Floren\u00e7a \u2192 Roma',color:'#c0392b',docs:[],items:[
+      {type:'train',time:'12:28',title:'Trem \u2014 Italo 8902 \u00b7 Prima Business',sub:'Italo Treno \u00b7 Firenze S.M. Novella \u2192 Roma Termini',detail:'1h37 \u00b7 Chegada 14:05',links:[{n:'Bilhetes de Trem',i:'train',u:DR.trains}]},
+      {type:'transfer',time:'12:28',title:'Transfer \u2014 Roma Termini \u2192 Singer Palace',sub:'Motorista segue o hor\u00e1rio do trem \u00b7 atrasos n\u00e3o s\u00e3o problema',detail:'Motorista na sa\u00edda pr\u00f3ximo \u00e0 Farm\u00e1cia, plataforma n\u00ba 1',emr:'rome',links:[]},
+      {type:'hotel',time:'15:00',title:'Check-in \u2014 Singer Palace Hotel Roma',sub:'Via Alessandro Specchi, 10',detail:'Michelin Key \u00b7 5 estrelas \u00b7 Taxa aprox. \u20ac80 \u00b7 Cau\u00e7\u00e3o aprox. \u20ac100',info:'singer_palace',links:[{n:'Voucher Hotel',i:'hotel',u:DR.hotels}]},
+      {type:'food',time:'19:30',title:'Jantar \u2014 Restaurante Singer Palace',sub:'Cobertura do hotel \u00b7 Toler\u00e2ncia de 20 minutos',ig:'https://www.instagram.com/singerpalacehotel/',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]}
+    ]},
+    {date:'02 Abr',week:'Quinta',city:'Roma',color:'#c0392b',docs:[],items:[
+      {type:'activity',time:'09:30',title:'Fontana di Trevi & Via del Corso',sub:'V\u00e1 cedo para menos movimento \u00b7 Entrada: \u20ac2 por pessoa',detail:'Manh\u00e3 leve para poupar energia para o Vaticano',info:'trevi',links:[]},
+      {type:'food',time:'12:00',title:'Almo\u00e7o \u2014 Pierluigi',sub:'Piazza de Ricci, 144 \u00b7 Frutos do mar \u00b7 Reserva essencial',ig:'https://www.instagram.com/pierluigiroma/?hl=pt',pen:'N\u00e3o comparecimento \u2192 \u20ac50 por pessoa. Cancelamento at\u00e9 24h antes sem penalidade.',info:'pierluigi',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]},
+      {type:'activity',time:'15:30',title:'Museus Vaticanos & Capela Sistina',sub:'Chegar 10 min antes \u00b7 Passaporte \u00b7 Viale Vaticano s/n',detail:'Dura\u00e7\u00e3o aprox. 3h \u00b7 Ingressos n\u00e3o reembolsaveis',ingressp:true,info:'vaticano',links:[{n:'Ingressos Vaticanos',i:'confirmation_number',u:DR.ingressos}]}
+    ]},
+    {date:'03 Abr',week:'Sexta',city:'Roma',color:'#c0392b',docs:[],items:[
+      {type:'activity',time:'09:30',title:'Coliseu \u00b7 Forum Romano \u00b7 Monte Palatino',sub:'Chegar 10 min antes \u00b7 Passaporte \u00b7 Sperone Valadier',detail:'Dura\u00e7\u00e3o aprox. 4h \u00b7 Bilhete v\u00e1lido 2 dias \u00b7 N\u00e3o reembolsavel',ingressp:true,info:'coliseu',links:[{n:'Ingressos Coliseu & Forum',i:'confirmation_number',u:DR.ingressos}]},
+      {type:'food',time:'13:00',title:'Almo\u00e7o \u2014 Aroma Ristorante',sub:'Frente ao Coliseu \u00b7 Terra\u00e7o Palazzo Manfredi \u00b7 1 estrela Michelin',detail:'Pedido m\u00ednimo: SMART MENU \u20ac170 \u2014 dois pratos \u00e0 sua escolha e uma sobremesa. Recomendo fazer o Forum Romano e Palatino ap\u00f3s o almo\u00e7o.',pen:'Em caso de n\u00e3o comparecimento ou cancelamento com menos de 24h ser\u00e1 cobrada uma taxa de \u20ac360.',ig:'https://www.instagram.com/aroma_restaurant/',info:'aroma',links:[{n:'Confirma\u00e7\u00e3o Restaurante',i:'restaurant',u:DR.restaurants}]},
+      {type:'food',time:'19:30',title:'Jantar de Despedida \u2014 A confirmar',sub:'Aguardando confirma\u00e7\u00e3o de reserva \u00b7 Roma',detail:'Assunta Madre ou Nino Ristorante \u2014 em processo de confirma\u00e7\u00e3o',altIg:{n:'Nino Ristorante \u2014 19:30',u:'https://www.instagram.com/ninodal1934?igsh=MW81c2FkMnR1NXg3NQ=='},links:[]}
+    ]},
+    {date:'04 Abr',week:'S\u00e1bado',city:'Roma \u2192 Fortaleza',color:'#264273',docs:[],items:[
+      {type:'activity',time:'08:00',title:'Check-out \u2014 Singer Palace Hotel',sub:'',detail:'',links:[]},
+      {type:'transfer',time:'09:30',title:'Transfer \u2014 Singer Palace \u2192 Fiumicino T1',sub:'Ponto de encontro: na frente do hotel',emr:'rome',links:[]},
+      {type:'flight',time:'13:35',title:'Voo FCO \u2192 LIS \u2014 TAP Air Portugal',sub:'TAP Portugal \u00b7 Voo 833 \u00b7 C7TA8A \u00b7 Executiva',detail:'3h10 \u00b7 Chegada Lisboa 15:45',links:[{n:'Passagens A\u00e9reas',i:'flight',u:DR.flights}]},
+      {type:'flight',time:'17:40',title:'Conex\u00e3o LIS \u2192 FOR \u2014 TAP Portugal',sub:'TAP Portugal \u00b7 Voo 35 \u00b7 C7TA8A \u00b7 Executiva',detail:'Espera 1h55 \u00b7 7h40 \u00b7 Chegada Fortaleza 21:20',links:[{n:'Passagens A\u00e9reas',i:'flight',u:DR.flights}]}
+    ]}
+  ],
+  cDocs:[
+    {n:'Seguro Viagem',i:'verified_user',t:'SEGURO',c:'#6b3db5',u:DR.insurance},
+    {n:'Passagens A\u00e9reas',i:'flight',t:'VOOS',c:'#264273',u:DR.flights},
+    {n:'Bilhetes de Trem \u2014 Italo',i:'train',t:'TRENS',c:'#0284c7',u:DR.trains},
+    {n:'Vouchers de Hot\u00e9is',i:'hotel',t:'HOT\u00c9IS',c:'#0e7a5f',u:DR.hotels},
+    {n:'Ingressos',i:'confirmation_number',t:'INGRESSOS',c:'#b8952a',u:DR.ingressos},
+    {n:'Reservas de Restaurantes',i:'restaurant',t:'RESTAURANTES',c:'#c0392b',u:DR.restaurants}
+  ]
+};
+var GUIAS={international:{title:'Guia da Viagem Internacional',icon:'public',color:'#264273',sub:'POR GABRIELLE \u2014 FUNDADORA AEROVOO',sections:[{h:'Em Casa',icon:'home',tips:['Passaporte com validade m\u00ednima de 6 meses.','Confirme vacinas no site da Anvisa.','Contrate seguro viagem e guarde a ap\u00f3lice.','Instale os apps: Google Translate, Maps, Uber.']},{h:'Dicas Pr\u00e1ticas',icon:'tips_and_updates',tips:['Moeda: use Wise, Nomad ou C6/Inter para c\u00e2mbio mais barato.','Leve reservas de hot\u00e9is impressas tamb\u00e9m.','Powerbank e carregador universal s\u00e3o essenciais.']},{h:'Checklist Mala',icon:'luggage',tips:['Passaporte e Seguro com ap\u00f3lice salva','Roupas adequadas ao clima e medicamentos pessoais','Eletr\u00f4nicos com carregadores e adaptador universal','Itens essenciais na bagagem de m\u00e3o em caso de extravio']},{h:'Problemas no Aeroporto',icon:'warning_amber',tips:['Mala extraviada: abra PIR no balc\u00e3o ANTES de sair da \u00e1rea de bagagens.','Voo cancelado: v\u00e1 imediatamente ao balc\u00e3o da companhia.','Nunca resolva depois de sair do aeroporto.','Acione a AeroVoo via WhatsApp para orienta\u00e7\u00e3o.']},{h:'Emerg\u00eancias na It\u00e1lia',icon:'emergency',tips:['Emerg\u00eancia geral: 112 (funciona em toda a Europa)','Pol\u00edcia: 113 \u00b7 Bombeiros: 115 \u00b7 Ambul\u00e2ncia: 118','Embaixada do Brasil em Roma: +39 06 44 19 82 00','Plant\u00e3o consular emerg\u00eancias: +39 338 274 5400','Seguro Viagem: +55 11 5039-9001 (24h)']}]}};
+var adIdx=0;
+function todayIdx(){var t=new Date(),s=new Date(VIAGEM.start),d=Math.floor((t-s)/86400000);if(d>=0&&d<VIAGEM.days.length)return d;return d<0?0:VIAGEM.days.length-1;}
+function init(){
+  document.getElementById('hname').textContent=VIAGEM.name;
+  document.getElementById('hdest').textContent=VIAGEM.dest;
+  document.getElementById('hdates').textContent=VIAGEM.dates;
+  document.getElementById('hcode').textContent=VIAGEM.code;
+  document.getElementById('ccode').textContent=VIAGEM.code;
+  adIdx=todayIdx();buildDayNav();buildDayPanels();buildDocNav();buildDocPanels();
+  setTimeout(function(){var p=document.getElementById('p'+adIdx);if(p)p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});},150);
+}
+function buildDayNav(){
+  var ti=todayIdx(),h='';
+  for(var i=0;i<VIAGEM.days.length;i++){
+    var d=VIAGEM.days[i],cls='pill'+(i===adIdx?' on':'')+(i===ti?' today':''),pts=d.date.split(' ');
+    h+='<div id="p'+i+'" class="'+cls+'" style="--c:'+d.color+'" onclick="selDay('+i+')"><div class="pill-n">'+pts[0]+'</div><div class="pill-m">'+pts[1]+'</div><div class="pill-dot"></div></div>';
+  }
+  document.getElementById('daynav').innerHTML=h;
+}
+function buildDayPanels(){
+  var ti=todayIdx(),h='';
+  for(var di=0;di<VIAGEM.days.length;di++){
+    var day=VIAGEM.days[di],iT=di===ti,iH='';
+    for(var ii=0;ii<day.items.length;ii++){
+      var item=day.items[ii],s=TIPOS[item.type]||TIPOS.activity,iL=ii===day.items.length-1;
+      var lH='';
+      if(item.links&&item.links.length>0){for(var li=0;li<item.links.length;li++){var l=item.links[li];lH+='<a class="dlink" href="'+l.u+'" target="_blank" rel="noopener"><span class="mi" style="color:var(--navy)">'+l.i+'</span><div><div class="dlname">'+l.n+'</div><div class="dlsub">Abrir no Google Drive</div></div><span class="mi dlarr">open_in_new</span></a>';}}
+      else{lH='<div class="nodoc"><span class="mi">info_outline</span>&nbsp;Nenhum documento vinculado</div>';}
+      var ex='';
+      if(item.ig)ex+=' <a class="ig-link" href="'+item.ig+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span class="mi">photo_camera</span>Instagram</a>';
+      if(item.ingressp)ex+=' <span class="ingresso-chip"><span class="mi">confirmation_number</span>INGRESSO</span>';
+      if(item.emr){var em=EM[item.emr];ex+='<br><a class="emergency-chip" href="tel:'+em.p.replace(/\s/g,'')+'" onclick="event.stopPropagation()"><span class="mi">phone_in_talk</span>Emerg\u00eancia '+em.c+': '+em.p+'</a>';}
+      if(item.pen)ex+='<div class="penalty-note">'+item.pen+'</div>';
+      if(item.altIg)ex+='<div style="margin-top:5px;font-size:10.5px;color:var(--text-mid)">ou <a href="'+item.altIg.u+'" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;" onclick="event.stopPropagation()">'+item.altIg.n+'</a></div>';
+      iH+='<div class="item"><div class="tl"><div class="dot" style="--d:'+s.dot+'"></div>'+(!iL?'<div class="line"></div>':'')+'</div>';
+      iH+='<div class="card" id="c'+di+'_'+ii+'" style="background:'+s.bg+';border-color:'+s.dot+'20" onclick="togCard('+di+','+ii+')">';
+      iH+='<div class="cmain"><div class="ctop"><div class="cleft"><div class="cbadge"><span class="mi" style="color:'+s.dot+'">'+s.icon+'</span><span class="cblabel" style="color:'+s.dot+'">'+s.label+'</span></div>';
+      iH+='<div class="ctitle">'+item.title+'</div>';
+      if(item.sub)iH+='<div class="csub">'+item.sub+'</div>';
+      var df=(item.detail||'')+ex;if(df)iH+='<div class="cdetail">'+df+'</div>';
+      iH+='</div>';if(item.time)iH+='<div class="ctime">'+item.time+'</div>';
+      iH+='</div></div>';
+      if(item.info)iH+='<div class="cinfo-btn" onclick="event.stopPropagation();openInfo(\''+item.info+'\')"><span class="mi">info</span>Ver sobre este local</div>';
+      iH+='<div class="cfoot"><span class="cftext">DOCUMENTOS</span><span class="mi">expand_more</span></div><div class="clinks">'+lH+'</div></div></div>';
+    }
+    h+='<div id="d'+di+'" class="dpanel'+(di===adIdx?' on':'')+'" style="--c:'+day.color+'">';
+    h+='<div class="dhead"><div class="dhead-top"><span class="dbadge" style="background:'+day.color+'">Dia '+(di+1)+'</span><span class="dweek">'+day.week+'</span>';
+    if(iT)h+='<span class="todaybadge">HOJE</span>';
+    h+='</div><div class="dcity"><span class="mi" style="font-size:13px;color:'+day.color+';opacity:.65">location_on</span>'+day.city+'</div></div>'+iH+'</div>';
+  }
+  document.getElementById('dpanels').innerHTML=h;
+}
+function togCard(di,ii){document.getElementById('c'+di+'_'+ii).classList.toggle('open');}
+function selDay(i){
+  adIdx=i;
+  document.querySelectorAll('.pill').forEach(function(p,k){p.classList.toggle('on',k===i);});
+  document.querySelectorAll('.dpanel').forEach(function(p,k){p.classList.toggle('on',k===i);});
+  var p=document.getElementById('p'+i);if(p)p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+function buildDocNav(){
+  var h='<div class="doctab on" id="dp-common" onclick="selDoc(\'common\')">Comuns</div>';
+  VIAGEM.days.forEach(function(d,i){if(d.docs&&d.docs.length>0)h+='<div class="doctab" id="dp-'+i+'" onclick="selDoc('+i+')">'+d.date+'</div>';});
+  document.getElementById('docnav').innerHTML=h;
+}
+function buildDocPanels(){
+  var gBtns='<button class="gbtn" style="background:linear-gradient(130deg,#1a2d52,#3a5da8);box-shadow:0 4px 16px rgba(38,66,115,.3)" onclick="openGuide(\'international\')">';
+  gBtns+='<span class="mi">public</span><span><span class="gbtitle">Guia da Viagem Internacional</span><span class="gbsub">Documentos, emerg\u00eancias, direitos e dicas</span></span><span class="mi gbarr">chevron_right</span></button>';
+  var cD='';VIAGEM.cDocs.forEach(function(d){cD+='<a class="dfile" href="'+d.u+'" target="_blank" rel="noopener"><span class="mi" style="color:'+d.c+'">'+d.i+'</span><div><div class="dfname">'+d.n+'</div><span class="dftag" style="background:'+d.c+'12;border:1px solid '+d.c+'30;color:'+d.c+'">'+d.t+'</span></div><span class="mi dfarr">open_in_new</span></a>';});
+  var h='<div id="dpc-common" class="docpanel on"><div style="margin-bottom:16px"><div class="slabel"><span class="mi">menu_book</span>GUIAS DE VIAGEM</div>'+gBtns+'</div><div class="slabel"><span class="mi">folder_shared</span>TODOS OS DOCUMENTOS</div>'+cD+'</div>';
+  VIAGEM.days.forEach(function(day,i){
+    if(!day.docs||day.docs.length===0)return;
+    h+='<div id="dpc-'+i+'" class="docpanel"><div class="slabel"><span class="mi">event</span>'+day.date.toUpperCase()+' \u2014 '+day.week.toUpperCase()+'</div>';
+    day.docs.forEach(function(d){h+='<a class="dfile" href="'+d.u+'" target="_blank" rel="noopener"><span class="mi" style="color:'+d.c+'">'+d.i+'</span><div><div class="dfname">'+d.n+'</div><span class="dftag" style="background:'+d.c+'12;border:1px solid '+d.c+'30;color:'+d.c+'">'+d.t+'</span></div><span class="mi dfarr">open_in_new</span></a>';});
+    h+='</div>';
+  });
+  document.getElementById('docpanels').innerHTML=h;
+}
+function selDoc(k){
+  document.querySelectorAll('.doctab').forEach(function(t){t.classList.remove('on');});
+  var p=document.getElementById('dp-'+k);if(p){p.classList.add('on');p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+  document.querySelectorAll('.docpanel').forEach(function(p){p.classList.remove('on');});
+  var panel=document.getElementById('dpc-'+k);if(panel)panel.classList.add('on');
+}
+function showSec(name,btn){
+  ['roteiro','docs','contato'].forEach(function(s){document.getElementById('s-'+s).style.display=s===name?'block':'none';});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
+  btn.classList.add('on');
+}
+function openGuide(k){
+  var g=GUIAS[k];
+  document.getElementById('guideModal').classList.add('on');
+  document.getElementById('mhdr').style.background='linear-gradient(145deg,'+g.color+'e0,'+g.color+')';
+  document.getElementById('micon').textContent=g.icon;
+  document.getElementById('mtitle').textContent=g.title;
+  document.getElementById('msub').textContent=g.sub;
+  var h='';
+  g.sections.forEach(function(s){
+    h+='<div class="msec"><div class="msh" style="color:'+g.color+'"><span class="mi">'+s.icon+'</span>'+s.h+'</div>';
+    s.tips.forEach(function(t){h+='<div class="tip" style="border-color:'+g.color+'50"><span class="mi" style="color:'+g.color+'">chevron_right</span><span class="tipt">'+t+'</span></div>';});
+    h+='</div>';
+  });
+  document.getElementById('mbody').innerHTML=h;
+}
+function closeGuide(){document.getElementById('guideModal').classList.remove('on');}
+function openInfo(key){
+  var info=INFOS[key];if(!info)return;
+  document.getElementById('infoCategory').textContent=info.cat||'';
+  document.getElementById('infoTitle').textContent=info.ttl||'';
+  var img=document.getElementById('infoImg');img.src=info.img||'';img.style.display=info.img?'block':'none';
+  document.getElementById('infoHero').style.background='var(--navy-dark)';
+  var bH='';
+  if(info.desc){info.desc.split('\n\n').forEach(function(p,i,a){bH+='<p class="info-desc" style="margin-bottom:'+(i<a.length-1?'12px':'0')+'">'+p+'</p>';});bH='<div style="margin-bottom:18px">'+bH+'</div>';}
+  if(info.tips&&info.tips.length>0){bH+='<div class="info-section-label"><span class="mi">tips_and_updates</span>DICAS PR\u00c1TICAS</div>';info.tips.forEach(function(t){bH+='<div class="info-tip"><span class="mi">check_circle</span><span class="info-tip-text">'+t+'</span></div>';});}
+  bH+='<div class="info-actions">';
+  if(info.map)bH+='<a class="info-action-btn" href="'+info.map+'" target="_blank" rel="noopener"><span class="mi" style="color:#4285f4">map</span><div><div class="info-action-label">Ver no Google Maps</div><div class="info-action-sub">Localiza\u00e7\u00e3o e rotas</div></div><div class="info-action-arr"><span class="mi">open_in_new</span></div></a>';
+  if(info.ig)bH+='<a class="info-action-btn" href="'+info.ig+'" target="_blank" rel="noopener"><span class="mi" style="color:#e1306c">photo_camera</span><div><div class="info-action-label">Instagram</div><div class="info-action-sub">Fotos e informa\u00e7\u00f5es</div></div><div class="info-action-arr"><span class="mi">open_in_new</span></div></a>';
+  if(info.web)bH+='<a class="info-action-btn" href="'+info.web+'" target="_blank" rel="noopener"><span class="mi" style="color:var(--navy)">language</span><div><div class="info-action-label">Site Oficial</div><div class="info-action-sub">Ingressos e hor\u00e1rios</div></div><div class="info-action-arr"><span class="mi">open_in_new</span></div></a>';
+  bH+='</div><div style="height:30px"></div>';
+  document.getElementById('infoBody').innerHTML=bH;
+  var ov=document.getElementById('infoOverlay');ov.classList.add('on');ov.scrollTop=0;
+}
+function closeInfo(){document.getElementById('infoOverlay').classList.remove('on');}
+init();
+</script>
+</body>
+</html>
